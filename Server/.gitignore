@@ -1,0 +1,45 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Ll]og/
+[Ll]ogs/
+artifacts/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# NuGet
+*.nupkg
+*.snupkg
+project.lock.json
+project.fragment.lock.json
+**/packages/
+
+# MSBuild logs
+*.binlog
+*.log
+*.wrn
+
+# ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# ASP.NET
+ScaffoldingReadMe.txt
+App_Data/*.mdf
+App_Data/*.ldf
+
+# Publish
+*.[Pp]ublish.xml
+*.azurePubxml
+*.publishproj
