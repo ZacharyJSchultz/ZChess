@@ -1,5 +1,8 @@
-﻿namespace ZChess.Models.Pieces
+﻿using ZChess.Attributes;
+
+namespace ZChess.Models.Pieces
 {
+    [DataModel]
     public class KnightModel: BasePieceModel
     {
     }

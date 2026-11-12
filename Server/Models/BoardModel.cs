@@ -1,5 +1,8 @@
-﻿namespace ZChess.Models
+﻿using ZChess.Attributes;
+
+namespace ZChess.Models
 {
+    [DataModel]
     public class BoardModel
     {
         public int BoardID { get; set; }

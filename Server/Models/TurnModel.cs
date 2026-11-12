@@ -1,7 +1,9 @@
-﻿using ZChess.Enums;
+﻿using ZChess.Attributes;
+using ZChess.Enums;
 
 namespace ZChess.Models
 {
+    [DataModel]
     public class TurnModel
     {
         public int TurnID { get; set; }

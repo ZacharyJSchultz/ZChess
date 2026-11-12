@@ -1,0 +1,14 @@
+{{ for class in data.Classes | Symbols.ThatHaveAttribute "DataModel"
+    capture output -}}
+export class {{ class.Name }} {{-if class.BaseClass }} implements {{ class.BaseClass.Name }} {{end}}
+{
+{{- for property in class.Properties | Symbols.ThatArePublic }}
+    public {{ property.Name | String.ToCamelCase }}: {{ property.Type | Type.ToTypeScriptType }};
+{{ end -}}
+}
+{{ end }}
+
+{{- filePath = "../../Client/src/app/models/data-models" + (class.Namespace | String.Replace "ZChess.Models." "" | 
+    String.Replace "ZChess.Models" "" | String.ToLowerFirst) + "/" + class.Name + ".ts" }}
+{{- Save output filePath }}
+{{ end }}

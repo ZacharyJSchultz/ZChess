@@ -1,7 +1,9 @@
-﻿using ZChess.Enums;
+﻿using ZChess.Attributes;
+using ZChess.Enums;
 
 namespace ZChess.Models.Pieces
 {
+    [DataModel]
     public class BasePieceModel
     {
         public int PieceID { get; set; }

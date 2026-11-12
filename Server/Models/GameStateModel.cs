@@ -1,7 +1,9 @@
-﻿using ZChess.Models.Pieces;
+﻿using ZChess.Attributes;
+using ZChess.Models.Pieces;
 
 namespace ZChess.Models
 {
+    [DataModel]
     public class GameStateModel
     {
         public int GameStateID { get; set; }
