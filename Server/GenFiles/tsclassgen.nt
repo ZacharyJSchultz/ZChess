@@ -1,14 +1,37 @@
 {{ for class in data.Classes | Symbols.ThatHaveAttribute "DataModel"
     capture output -}}
+    
+{{- importedTypes = [] -}}
+
+{{- for property in class.Properties | Symbols.ThatArePublic -}}
+    {{propertyType = property.Type | Type.Unwrap}}
+    {{- if !propertyType.IsPrimitive && propertyType.Name != class.Name && !(importedTypes | Array.Contains propertyType) -}}
+        {{- importedTypes = importedTypes | Array.Add propertyType -}}
+    {{-end-}}
+{{-end-}}
+
+{{- for type in importedTypes -}} 
+    import { {{type.BareName}} } from '{{- class.Namespace | Custom.GetDotSlashes -}}{{type.BareName | Custom.ToKebabCase}}'
+{{end~}}
+
 export class {{ class.Name }} {{-if class.BaseClass }} implements {{ class.BaseClass.Name }} {{end}}
 {
 {{- for property in class.Properties | Symbols.ThatArePublic }}
     public {{ property.Name | String.ToCamelCase }}: {{ property.Type | Type.ToTypeScriptType }};
-{{ end -}}
+{{ end ~}}
+
+    constructor(opts?: Partial<{{class.Name}}>) {
+        Object.assign(this, opts);
+    }
+
 }
 {{ end }}
 
-{{- filePath = "../../Client/src/app/models/data-models" + (class.Namespace | String.Replace "ZChess.Models." "" | 
-    String.Replace "ZChess.Models" "" | String.ToLowerFirst) + "/" + class.Name + ".ts" }}
+{{- namespacePath = class.Namespace | 
+    String.Replace "ZChess.Models." "" | 
+    String.Replace "ZChess.Models" "" | 
+    String.Replace "." "/" | 
+    String.Downcase -}}
+{{- filePath = "../../Client/src/app/models/data-models" + (namespacePath != "" ? "/" : "") + namespacePath + "/" + (class.Name | Custom.ToKebabCase) + ".ts" }}
 {{- Save output filePath }}
 {{ end }}

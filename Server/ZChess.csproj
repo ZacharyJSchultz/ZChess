@@ -1,124 +1,32 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net10.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net10.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.13" />
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="10.0.14" />
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client.Core" Version="10.0.14" />
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Common" Version="10.0.14" />
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.Json" Version="10.0.14" />
-    <PackageReference Include="NTypewriter.SourceGenerator" Version="0.5.9" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.13" />
+		<PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="10.0.14" />
+		<PackageReference Include="Microsoft.AspNetCore.SignalR.Client.Core" Version="10.0.14" />
+		<PackageReference Include="Microsoft.AspNetCore.SignalR.Common" Version="10.0.14" />
+		<PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.Json" Version="10.0.14" />
+		<PackageReference Include="NTypewriter.SourceGenerator" Version="0.5.9" />
+		<PackageReference Include="NTypewriter.Editor.Config" Version="0.5.9" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <TypeScriptCompile Include="..\Client\src\app\models\pieces\BasePieceModel.ts" />
-    <TypeScriptCompile Include="..\Client\src\app\models\pieces\BishopModel.ts">
-      <Link>BishopModel.ts</Link>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="..\Client\src\app\models\pieces\KingModel.ts">
-      <Link>KingModel.ts</Link>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="..\Client\src\app\models\pieces\KnightModel.ts">
-      <Link>KnightModel.ts</Link>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="..\Client\src\app\models\pieces\PawnModel.ts">
-      <Link>PawnModel.ts</Link>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="..\Client\src\app\models\pieces\QueenModel.ts">
-      <Link>QueenModel.ts</Link>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="..\Client\src\app\models\pieces\RookModel.ts">
-      <Link>RookModel.ts</Link>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="..\Client\src\app\models\zChess.Models\BoardModel.ts">
-      <Link>BoardModel.ts</Link>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="..\Client\src\app\models\zChess.Models\GameInfoModel.ts">
-      <Link>GameInfoModel.ts</Link>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="..\Client\src\app\models\zChess.Models\GameModel.ts">
-      <Link>GameModel.ts</Link>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="..\Client\src\app\models\zChess.Models\GameStateModel.ts">
-      <Link>GameStateModel.ts</Link>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="..\Client\src\app\models\zChess.Models\MoveModel.ts">
-      <Link>MoveModel.ts</Link>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="..\Client\src\app\models\zChess.Models\PlayerColorModel.ts">
-      <Link>PlayerColorModel.ts</Link>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="..\Client\src\app\models\zChess.Models\PlayerModel.ts">
-      <Link>PlayerModel.ts</Link>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="..\Client\src\app\models\zChess.Models\TileModel.ts">
-      <Link>TileModel.ts</Link>
-    </TypeScriptCompile>
-    <TypeScriptCompile Include="..\Client\src\app\models\zChess.Models\TurnModel.ts">
-      <Link>TurnModel.ts</Link>
-    </TypeScriptCompile>
-  </ItemGroup>
+	<ItemGroup>
+		<None Update="GenFiles\tsclassgen.nt">
+			<CustomToolNamespace>e259cdaa-0723-45a0-b8af-80efdca37a90</CustomToolNamespace>
+		</None>
+		<None Update="GenFiles\tsenumgen.nt">
+			<CustomToolNamespace>2a7bf848-97e7-47e9-bc2b-db4b915eef80</CustomToolNamespace>
+		</None>
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Update="Client\src\app\models\pieces\BasePieceModel.ts">
-      <CustomToolNamespace>e259cdaa-0723-45a0-b8af-80efdca37a90</CustomToolNamespace>
-    </None>
-    <None Update="Client\src\app\models\pieces\BishopModel.ts">
-      <CustomToolNamespace>e259cdaa-0723-45a0-b8af-80efdca37a90</CustomToolNamespace>
-    </None>
-    <None Update="Client\src\app\models\pieces\KingModel.ts">
-      <CustomToolNamespace>e259cdaa-0723-45a0-b8af-80efdca37a90</CustomToolNamespace>
-    </None>
-    <None Update="Client\src\app\models\pieces\KnightModel.ts">
-      <CustomToolNamespace>e259cdaa-0723-45a0-b8af-80efdca37a90</CustomToolNamespace>
-    </None>
-    <None Update="Client\src\app\models\pieces\PawnModel.ts">
-      <CustomToolNamespace>e259cdaa-0723-45a0-b8af-80efdca37a90</CustomToolNamespace>
-    </None>
-    <None Update="Client\src\app\models\pieces\QueenModel.ts">
-      <CustomToolNamespace>e259cdaa-0723-45a0-b8af-80efdca37a90</CustomToolNamespace>
-    </None>
-    <None Update="Client\src\app\models\pieces\RookModel.ts">
-      <CustomToolNamespace>e259cdaa-0723-45a0-b8af-80efdca37a90</CustomToolNamespace>
-    </None>
-    <None Update="Client\src\app\models\zChess.Models\BoardModel.ts">
-      <CustomToolNamespace>e259cdaa-0723-45a0-b8af-80efdca37a90</CustomToolNamespace>
-    </None>
-    <None Update="Client\src\app\models\zChess.Models\GameInfoModel.ts">
-      <CustomToolNamespace>e259cdaa-0723-45a0-b8af-80efdca37a90</CustomToolNamespace>
-    </None>
-    <None Update="Client\src\app\models\zChess.Models\GameModel.ts">
-      <CustomToolNamespace>e259cdaa-0723-45a0-b8af-80efdca37a90</CustomToolNamespace>
-    </None>
-    <None Update="Client\src\app\models\zChess.Models\GameStateModel.ts">
-      <CustomToolNamespace>e259cdaa-0723-45a0-b8af-80efdca37a90</CustomToolNamespace>
-    </None>
-    <None Update="Client\src\app\models\zChess.Models\MoveModel.ts">
-      <CustomToolNamespace>e259cdaa-0723-45a0-b8af-80efdca37a90</CustomToolNamespace>
-    </None>
-    <None Update="Client\src\app\models\zChess.Models\PlayerColorModel.ts">
-      <CustomToolNamespace>e259cdaa-0723-45a0-b8af-80efdca37a90</CustomToolNamespace>
-    </None>
-    <None Update="Client\src\app\models\zChess.Models\PlayerModel.ts">
-      <CustomToolNamespace>e259cdaa-0723-45a0-b8af-80efdca37a90</CustomToolNamespace>
-    </None>
-    <None Update="Client\src\app\models\zChess.Models\TileModel.ts">
-      <CustomToolNamespace>e259cdaa-0723-45a0-b8af-80efdca37a90</CustomToolNamespace>
-    </None>
-    <None Update="Client\src\app\models\zChess.Models\TurnModel.ts">
-      <CustomToolNamespace>e259cdaa-0723-45a0-b8af-80efdca37a90</CustomToolNamespace>
-    </None>
-    <None Update="GenFiles\tsclassgen.nt">
-      <CustomToolNamespace>e259cdaa-0723-45a0-b8af-80efdca37a90</CustomToolNamespace>
-    </None>
-    <None Update="GenFiles\tsenumgen.nt">
-      <CustomToolNamespace>2a7bf848-97e7-47e9-bc2b-db4b915eef80</CustomToolNamespace>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Controllers\" />
+	</ItemGroup>
 
 </Project>
