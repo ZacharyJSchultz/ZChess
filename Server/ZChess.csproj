@@ -29,4 +29,10 @@
 	  <Folder Include="Controllers\" />
 	</ItemGroup>
 
+	<Target Name="ClearGeneratedTsFiles" BeforeTargets="Build">
+		<Message Text="Clearing Generated TS Files..." />
+		<Exec Command="pwsh -NoProfile -ExecutionPolicy Bypass -File &quot;$(ProjectDir)Scripts\Clear-GeneratedTsFiles.ps1&quot;"
+			  WorkingDirectory="$(ProjectDir)" />
+	</Target>
+
 </Project>

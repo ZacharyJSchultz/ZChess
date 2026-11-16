@@ -10,6 +10,7 @@
     {{-end-}}
 {{-end-}}
 
+// TODO: Enums are importing from wrong folder... need to adjust GetDotSlashes to factor in if it's enum
 {{- for type in importedTypes -}} 
     import { {{type.BareName}} } from '{{- class.Namespace | Custom.GetDotSlashes -}}{{type.BareName | Custom.ToKebabCase}}'
 {{end~}}

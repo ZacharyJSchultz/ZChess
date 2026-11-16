@@ -1,5 +1,8 @@
-﻿namespace ZChess.Enums
+﻿using ZChess.Attributes;
+
+namespace ZChess.Enums
 {
+    [SharedEnum]
     public enum eMoveStyle
     {
         NotSet = 0,

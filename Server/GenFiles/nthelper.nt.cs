@@ -6,7 +6,7 @@ namespace ZChess.GenFiles
 {
     public static class HelperFunctions
     {
-        // AI-generated w/ ChatGPT
+        // AI-generated w/ ChatGPT... regex is too 
         public static string ToKebabCase(string value)
         {
             if (string.IsNullOrWhiteSpace(value))

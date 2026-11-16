@@ -1,1 +1,17 @@
-// TODO
+{{ for enum in data.Enums | Symbols.ThatHaveAttribute "SharedEnum"
+    capture output -}}
+export class {{enum.Name | String.ReplaceFirst "e" "" | String.Append "Enum" }} {
+{{ for value in enum.Values ~}}
+    {{value.Name}} = {{value.Value }};
+{{end -}}
+}
+{{end}}
+
+{{- namespacePath = enum.Namespace | 
+    String.Replace "ZChess.Enums." "" | 
+    String.Replace "ZChess.Enums" "" | 
+    String.Replace "." "/" | 
+    String.Downcase -}}
+{{- filePath = "../../Client/src/app/enums/shared-enums" + (namespacePath != "" ? "/" : "") + namespacePath + "/" + (enum.Name | Custom.ToKebabCase) + ".ts" }}
+{{- Save output filePath }}
+{{end}}
